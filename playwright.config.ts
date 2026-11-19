@@ -41,28 +41,32 @@ export default defineConfig({
       testDir: './tests/API',
       use: { baseURL: 'https://api.practicesoftwaretesting.com/' },
     },
-    {
-      name: 'setup',
-      testMatch: /.*\.setup\.ts/,
-    },
+    // {
+    //   name: 'setup',
+    //   testMatch: /.*\.setup\.ts/,
+    // },
+    // {
+    //   name: 'chromium',
+    //   use: { ...devices['Desktop Chrome'], storageState: 'playwright/.auth/user.json' },
+    //   dependencies: ['setup'],
+    //   testIgnore: '**/API/**',
+    // },
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], storageState: 'playwright/.auth/user.json' },
-      dependencies: ['setup'],
+      use: { ...devices['Desktop Chrome']},
+      // dependencies: ['setup'],
       testIgnore: '**/API/**',
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'], storageState: 'playwright/.auth/user.json'  },
-      dependencies: ['setup'],
+      use: { ...devices['Desktop Firefox'] },
       testIgnore: '**/API/**',
     },
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'], storageState: 'playwright/.auth/user.json'  },
-      dependencies: ['setup'],
+      use: { ...devices['Desktop Safari']  },
       testIgnore: '**/API/**',
     },
 
