@@ -50,4 +50,10 @@ export class UserApi {
     async getUserWithoutToken() {
         return await this.request.get(`${API_BASE_URL}users/me`);
     }
+
+    async deleteUser(userId: string, adminToken: string) {
+        return await this.request.delete(`${API_BASE_URL}users/${userId}`, {
+            headers: { Authorization: `Bearer ${adminToken}` }
+        });
+    }
 }
