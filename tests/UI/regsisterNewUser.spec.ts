@@ -3,7 +3,7 @@ import { HomePage } from '../../pages/HomePage';
 import { UserApi } from '../../api/UserApis';
 import { randomUUID } from 'crypto';
 import { LoginPage } from '../../pages/LoginPage';
-test.describe('test register new user', () => {
+test.describe('test new user register via API could login on UI successfully', () => {
 
     let homePage: HomePage;
     let email: string;
@@ -41,7 +41,7 @@ test.describe('test register new user', () => {
         await signInLink.click();
         loginPage = new LoginPage(page);
         await loginPage.login(email, password);
-        const userNameBtn = page.getByTestId('nav-menu');
-        await expect(userNameBtn).toHaveText('Jane Doe');
+        const userNameLocator = page.getByTestId('nav-menu');
+        await expect(userNameLocator).toHaveText('John Doe');
     });
 }) 

@@ -8,7 +8,7 @@ test.describe('test search Hammer', () => {
     await homePage.goto();
     });
     test('testcase1, search Hammer and verify all the items displayed on page contains Hammer', async({ page}) => {
-        // 先开始等待搜索接口的响应，再触发搜索
+        // wait for response, and then trigger search on UI
         const productNames = page.getByTestId('product-name');
         const responsePromise = page.waitForResponse(
             r => r.url().includes('/products/search') && r.status() === 200
