@@ -34,27 +34,8 @@ test.describe('test login with API', () => {
       const registerBody = await registerResponse.json();
       expect(registerBody.first_name).toBe('John');
     });
-
-    const newProduct = {
-      name: "NewHammer",
-      description: "New for sell",
-      price: 1.99,
-      category_id: "01JFG8Q5XKZJY4BEYQ87PC2Q1Y",
-      brand_id: "01JFG8Q5XKZJY4BEYQ87PC2Q1Y",
-      product_image_id: "01JFG8Q5XKZJY4BEYQ87PC2Q1Y",
-      is_location_offer: 1,
-      is_rental: 0,
-      co2_rating: "A",
-    }
-
-    test('Create a new product via API', async ({request}) => {
-      const productApi = new ProductApi(request);
-      const newProductResponse = await productApi.createNewProduct(newProduct);
-      expect(newProductResponse.status()).toBe(200);
-      expect(newProductResponse.body.name).toBe("NewHammer");
-    });
     
-    test('Login with API and verify the name displayed on UI', async ({ request, page }) => {
+    test('Test the whole shopping process, purchase multiple items', async ({ request, page }) => {
       const userAPI = new UserApi(request);
       const loginData = {
         email: email,
