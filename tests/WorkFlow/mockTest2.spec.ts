@@ -39,7 +39,7 @@ test.describe('mock product list API', () => {
         await homePage.viewItemDetail('Combination Pliers');
         const itemPrice = page.getByTestId('unit-price');
         const addToCart = page.getByTestId('add-to-cart');
-        await expect(itemPrice).toHaveText('0.01');
+        await expect(itemPrice).toHaveText('0.10');
         await expect(addToCart).toBeDisabled();
     });
 })
